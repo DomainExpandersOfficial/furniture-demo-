@@ -448,11 +448,11 @@ function openQuickView(productId) {
   );
 
   modalBody.innerHTML = `
-    <div class="modal-content-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
-      <div style="aspect-ratio: 1 / 1; overflow: hidden; background: #F1ECE3;">
-        <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="modal-content-grid">
+      <div class="modal-thumb-wrap">
+        <img src="${item.image}" alt="${item.name}">
       </div>
-      <div>
+      <div class="modal-info-wrap">
         <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
           <span class="product-badge" style="position: static;">${item.badge}</span>
           <span style="background: var(--bg-page); border: 1px solid var(--border-subtle); padding: 4px 10px; font-size: 0.72rem; font-weight: 700; color: var(--gold-dark);">${item.woodType}</span>
@@ -479,11 +479,11 @@ function openQuickView(productId) {
           </ul>
         </div>
 
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <a href="https://wa.me/${CARPENTER_CONFIG.whatsappNumber}?text=${whatsappText}" target="_blank" class="btn-hero-primary" style="flex: 1.3; text-align: center; text-decoration: none; padding: 12px 16px; background: #25D366; border-color: #25D366;">
+        <div class="modal-actions-row">
+          <a href="https://wa.me/${CARPENTER_CONFIG.whatsappNumber}?text=${whatsappText}" target="_blank" class="btn-hero-primary modal-btn-wa">
             💬 ${isEn ? 'Inquire on WhatsApp' : 'व्हाट्सएप पर बात करें'}
           </a>
-          <a href="#booking-section" onclick="closeModal()" class="btn-hero-primary" style="flex: 1; text-align: center; text-decoration: none; padding: 12px 14px; background: var(--text-primary); border-color: var(--text-primary);">
+          <a href="#booking-section" onclick="closeModal()" class="btn-hero-primary modal-btn-book">
             📐 ${isEn ? 'Book Free Visit' : 'फ्री नाप बुक करें'}
           </a>
         </div>
@@ -864,19 +864,25 @@ function setupQuickActions() {
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const navMenu = document.getElementById("nav-menu-list");
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener("click", () => {
-      const isVisible = navMenu.style.display === "flex";
-      navMenu.style.display = isVisible ? "none" : "flex";
-      if (!isVisible) {
-        navMenu.style.flexDirection = "column";
-        navMenu.style.position = "absolute";
-        navMenu.style.top = "100%";
-        navMenu.style.left = "0";
-        navMenu.style.width = "100%";
-        navMenu.style.background = "#FFFFFF";
-        navMenu.style.padding = "20px";
-        navMenu.style.boxShadow = "0 10px 20px rgba(0,0,0,0.15)";
-        navMenu.style.borderBottom = "1px solid var(--border-subtle)";
+    mobileToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle("mobile-open");
+      mobileToggle.innerHTML = isOpen ? "✕" : "☰";
+    });
+
+    // Close when clicking any menu link
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("mobile-open");
+        if (mobileToggle) mobileToggle.innerHTML = "☰";
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (navMenu.classList.contains("mobile-open") && !navMenu.contains(e.target) && e.target !== mobileToggle) {
+        navMenu.classList.remove("mobile-open");
+        if (mobileToggle) mobileToggle.innerHTML = "☰";
       }
     });
   }
