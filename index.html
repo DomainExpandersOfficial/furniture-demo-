@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharma Enterprises - Bespoke Solid Wood Furniture & Living | Handcrafted in Kirti Nagar</title>
+  <meta name="description" content="Sharma Enterprises is a bespoke solid woodcraft studio. Discover handcrafted living, dining, and bedroom furniture in pure seasoned CP Teak and Indian Sheesham. Direct workshop pricing without showroom markups.">
+  <meta name="keywords" content="solid wood furniture, teak wood sofa, sheesham bed, pooja mandir, custom furniture, threesixty furniture, kirti nagar carpenter, bespoke woodcraft">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪵</text></svg>">
+
+  <!-- Three Sixty Luxury Fonts: Playfair Display + Plus Jakarta Sans + DM Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar (Three Sixty Minimalist Centered Style) -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="top-bar-ticker">
+        <span class="top-bar-arrow" onclick="cycleTicker(-1)">‹</span>
+        <span id="announcement-text">Bespoke Solid CP Teak & Sheesham Furniture • Direct Workshop Pricing • Free Delhi NCR Measurement</span>
+        <span class="top-bar-arrow" onclick="cycleTicker(1)">›</span>
+      </div>
+      <div class="top-bar-phone">
+        <span>📞 Sharma Ji: +91 98765 43210</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header (Three Sixty Pure White Luxury Header) -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="brand-title">SHARMA ENTERPRISES</span>
+        <span class="brand-sub">BESPOKE SOLID WOOD CRAFT</span>
+      </a>
+
+      <!-- Desktop Menu Links -->
+      <ul class="nav-menu" id="nav-menu-list">
+        <li><a href="#catalog-section" class="nav-link active">All Furniture</a></li>
+        <li><a href="#catalog-section" onclick="filterByCat('living')" class="nav-link">Living</a></li>
+        <li><a href="#catalog-section" onclick="filterByCat('dining')" class="nav-link">Dining</a></li>
+        <li><a href="#catalog-section" onclick="filterByCat('bedroom')" class="nav-link">Bedroom</a></li>
+        <li><a href="#catalog-section" onclick="filterByCat('mandir')" class="nav-link">Mandir & Swings</a></li>
+        <li><a href="#bespoke-section" class="nav-link">Bespoke Atelier</a></li>
+        <li><a href="#craftsman-section" class="nav-link">Our Story</a></li>
+      </ul>
+
+      <!-- Action Icons -->
+      <div class="nav-actions">
+        <button class="btn-lang" id="lang-toggle-btn" title="Switch Language">
+          🌐 हिन्दी
+        </button>
+
+        <a href="#booking-section" class="btn-header-consult">
+          📐 Free Measurement
+        </a>
+
+        <a href="https://wa.me/919876543210?text=Hello%20Sharma%20Ji,%20I%20would%20like%20to%20discuss%20custom%20solid%20wood%20furniture." target="_blank" class="btn-wa-header">
+          💬 WhatsApp
+        </a>
+
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Collection Hero Banner (Three Sixty Panoramic Editorial Header) -->
+  <section class="collection-hero">
+    <img src="assets/images/hero.jpg" alt="The Solid Wood Living Collection" class="collection-hero-bg">
+    <div class="collection-hero-overlay"></div>
+    <div class="collection-hero-content">
+      <span class="collection-hero-badge">THE BESPOKE COLLECTION</span>
+      <h1 class="collection-hero-title">Handcrafted Solid Wood Living</h1>
+      <p class="collection-hero-desc">
+        Crafted from seasoned CP Teak and pure Indian Sheesham timber. Built by artisan woodworkers to your room's exact inches.
+      </p>
+      <div class="hero-actions-row">
+        <a href="#catalog-section" class="btn-hero-primary">Explore All Pieces ↓</a>
+        <a href="#booking-section" class="btn-hero-outline">Request Home Inching</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Scroll Bar (Three Sixty Pill Quick-Filters) -->
+  <div class="category-scroll-bar">
+    <div class="container">
+      <div class="category-pills-wrap">
+        <div class="category-pill active" data-cat="all">All Pieces (100+)</div>
+        <div class="category-pill" data-cat="living">🛋️ Living & Sofas</div>
+        <div class="category-pill" data-cat="dining">🪑 Dining Tables</div>
+        <div class="category-pill" data-cat="bedroom">🛏️ Beds & Wardrobes</div>
+        <div class="category-pill" data-cat="mandir">🛕 Temple Mandirs</div>
+        <div class="category-pill" data-cat="balcony">🌿 Teak Swings</div>
+        <div class="category-pill" data-cat="doors">⛩️ Carved Doors</div>
+        <div class="category-pill" data-cat="study">💼 Executive Desks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter & Sorting Strip (Three Sixty In-Stock Switch + Dropdowns) -->
+  <div class="filter-strip">
+    <div class="container">
+      <div class="filter-strip-inner">
+        <div class="filter-left-controls">
+          <label class="stock-toggle-label">
+            <span class="switch-toggle">
+              <input type="checkbox" id="stock-only-toggle" checked onchange="toggleStockFilter(this)">
+              <span class="slider-round"></span>
+            </span>
+            <span>Ready in 7–12 Days</span>
+          </label>
+          <span class="result-count-label" id="catalog-result-count">9 Handcrafted Pieces</span>
+        </div>
+
+        <div class="filter-right-controls">
+          <div class="ts-search-input-wrap">
+            <span class="ts-search-icon">🔍</span>
+            <input type="text" id="catalog-search" class="ts-search-input" placeholder="Search furniture...">
+          </div>
+
+          <select id="wood-filter-select" class="ts-filter-dropdown">
+            <option value="all">Wood: All Species</option>
+            <option value="teak">CP Teak (सागवान)</option>
+            <option value="sheesham">Pure Sheesham (शीशम)</option>
+            <option value="oak">White Oak (ओक)</option>
+          </select>
+
+          <select id="catalog-sort" class="ts-filter-dropdown">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Catalog Grid (Three Sixty Borderless Luxury Cards) -->
+  <section class="catalog-section" id="catalog-section">
+    <div class="container">
+      <div class="products-grid" id="products-container">
+        <!-- Rendered dynamically by main.js in exact Three Sixty style -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Bespoke Atelier Feature Banner (Three Sixty Large Split Banner) -->
+  <section class="bespoke-atelier-section" id="bespoke-section">
+    <div class="container">
+      <div class="bespoke-grid">
+        <div class="bespoke-img-wrap">
+          <img src="assets/images/carpenter_craft.jpg" alt="Master Carpenter hand-planing solid teak wood in workshop" class="bespoke-img">
+        </div>
+        <div class="bespoke-content">
+          <span class="bespoke-tag">BESPOKE ATELIER</span>
+          <h2 class="bespoke-title">Your Vision, Handcrafted to Perfection</h2>
+          <p class="bespoke-desc">
+            Have a reference photograph from Pinterest, Architectural Digest, or an architect layout? Sharma Enterprises crafts bespoke custom solid wood furniture from seasoned CP Teak and Indian Sheesham logs—crafted to your room's exact inches.
+          </p>
+          <div class="bespoke-feature-list">
+            <div class="bespoke-feature-item">
+              <span class="icon">✓</span>
+              <span>100% Solid Kiln-Seasoned Timber</span>
+            </div>
+            <div class="bespoke-feature-item">
+              <span class="icon">✓</span>
+              <span>Pre-Polish Workshop Inspection</span>
+            </div>
+            <div class="bespoke-feature-item">
+              <span class="icon">✓</span>
+              <span>Mortise & Tenon Joint Longevity</span>
+            </div>
+            <div class="bespoke-feature-item">
+              <span class="icon">✓</span>
+              <span>10-Year Written Guarantee</span>
+            </div>
+          </div>
+          <a href="https://wa.me/919876543210?text=Hello%20Sharma%20Ji,%20I%20have%20a%20reference%20photo%20of%20furniture.%20Can%20you%20review%20and%20provide%20a%20bespoke%20quote?" target="_blank" class="btn-bespoke-wa">
+            Share Reference on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process & Workshop Transparency (4-Step Craft Timeline) -->
+  <section class="process-section" id="process-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">THE ATELIER PROCESS</span>
+        <h2 class="section-title">How We Handcraft Your Piece</h2>
+        <p class="section-desc">Uncompromising transparency from raw timber log selection to final in-home white-glove placement.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <span class="process-step-num">Step 01</span>
+          <h3 class="process-card-title">Share Reference or Idea</h3>
+          <p class="process-card-desc">
+            Send your Pinterest image, Instagram reel, or hand sketch via WhatsApp. Sharma Ji directly evaluates timber footage and sends an upfront estimate within 2 hours.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-num">Step 02</span>
+          <h3 class="process-card-title">Home Inching & Wood Blocks</h3>
+          <p class="process-card-desc">
+            Rohit visits your residence with steel measuring tape, raw wood wedges (Teak, Sheesham), and stain finish samples to verify room dimensions and clearances.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-num">Step 03</span>
+          <h3 class="process-card-title">Raw Frame Workshop Inspection</h3>
+          <p class="process-card-desc">
+            Before applying PU polish, inspect the unpolished jointed frame at our Kirti Nagar karkhana (or via live WhatsApp video) to verify 100% solid timber with zero hidden ply.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-num">Step 04</span>
+          <h3 class="process-card-title">Delivery & Artisan Assembly</h3>
+          <p class="process-card-desc">
+            Our own senior workshop karigars deliver, carry, assemble, and level the furniture in your room. You inspect every joint before paying the 20% balance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparent Carpenter Pricing Guide -->
+  <section class="pricing-section" id="pricing-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">TRANSPARENT PRICING</span>
+        <h2 class="section-title">Fair Workshop Timber Rates</h2>
+        <p class="section-desc">Zero showroom overheads, zero dealer commissions. You pay strictly for seasoned timber, hardware, and skilled artisan labor.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h4 class="pricing-card-title">CP Teak (सागवान)</h4>
+          <div class="pricing-rate-display">₹1,250 – ₹1,450</div>
+          <span class="pricing-rate-sub">per square foot (Grade-A)</span>
+          <ul class="pricing-bullets">
+            <li>✓ Rich natural silica oil (Termite proof)</li>
+            <li>✓ Deep golden-brown honey tones</li>
+            <li>✓ Ideal for heavy sofas, dining & doors</li>
+            <li>✓ 10-Year written guarantee</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <h4 class="pricing-card-title">Indian Sheesham (शीशम)</h4>
+          <div class="pricing-rate-display">₹950 – ₹1,150</div>
+          <span class="pricing-rate-sub">per square foot (Heartwood)</span>
+          <ul class="pricing-bullets">
+            <li>✓ Distinctive contrasting grain swirls</li>
+            <li>✓ High density timber (resists dents)</li>
+            <li>✓ Perfect for king beds, desks & mandirs</li>
+            <li>✓ Hand-rubbed walnut or natural PU</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <h4 class="pricing-card-title">Hardware & Channels</h4>
+          <div class="pricing-rate-display">At Actuals</div>
+          <span class="pricing-rate-sub">zero markup on branded fittings</span>
+          <ul class="pricing-bullets">
+            <li>✓ Hettich soft-close channels & hinges</li>
+            <li>✓ Ebco heavy-duty hydraulic bed lifts</li>
+            <li>✓ Solid brass handles & tapered leg caps</li>
+            <li>✓ Godrej / Yale lock integration</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <h4 class="pricing-card-title">Finishing & Polish</h4>
+          <div class="pricing-rate-display">₹140 – ₹220</div>
+          <span class="pricing-rate-sub">per square foot (Italian PU)</span>
+          <ul class="pricing-bullets">
+            <li>✓ Asian Paints Aquadur Italian PU</li>
+            <li>✓ Hot-spill and water-ring resistant</li>
+            <li>✓ Matt, satin, or high-gloss finish</li>
+            <li>✓ 7 stages of progressive sanding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Master Craftsman & Workshop Story -->
+  <section class="craftsman-section" id="craftsman-section">
+    <div class="container">
+      <div class="craftsman-grid">
+        <div class="craftsman-img-wrap">
+          <img src="assets/images/carpenter_craft.jpg" alt="Master Craftsman Ramcharan Sharma" class="craftsman-img">
+        </div>
+        <div class="craftsman-info">
+          <span class="craftsman-tag">TRADITION & HERITAGE</span>
+          <h2 class="craftsman-title">Master Ramcharan Sharma & Family</h2>
+          <p class="craftsman-quote">
+            "I started Sharma Enterprises in 1998 in a modest 200 sq.ft shed in Kirti Nagar Lakkar Mandi with just two hand-planes, a bow saw, and an obsession with solid timber. Over the past 28 years, retail stores replaced genuine wood with paper-laminated MDF boards that swell after a single monsoon."
+          </p>
+          <p class="craftsman-quote">
+            "We refused to compromise. In our karkhana, every plank is kiln-seasoned below 12% moisture, every joint is traditional mortise-and-tenon (Chool-Kabza), and we invite every client to inspect their unpolished frame before we spray the PU finish."
+          </p>
+          <div class="craftsman-features-list">
+            <div class="craftsman-feat-item">
+              <h4>🪚 Chool-Kabza (Mortise & Tenon)</h4>
+              <p>Interlocking wood joints that never wobble.</p>
+            </div>
+            <div class="craftsman-feat-item">
+              <h4>🛡️ Kiln-Dried & Treated</h4>
+              <p>Moisture below 12% to prevent monsoon warping.</p>
+            </div>
+            <div class="craftsman-feat-item">
+              <h4>☕ Open Karkhana Policy</h4>
+              <p>Visit our Kirti Nagar timber yard for tea & timber inspection.</p>
+            </div>
+            <div class="craftsman-feat-item">
+              <h4>📄 Stamped 10-Yr Guarantee</h4>
+              <p>Official warranty certificate on workshop letterhead.</p>
+            </div>
+          </div>
+          <a href="tel:+919876543210" class="btn-hero-primary" style="display: inline-block;">
+            Speak to Sharma Ji: +91 98765 43210
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Consultation / In-Home Measurement Booking Form -->
+  <section class="booking-section" id="booking-section">
+    <div class="container">
+      <div class="booking-box">
+        <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+          <span class="section-subhead">STUDIO CONSULTATION</span>
+          <h2 class="section-title">Book Free In-Home Measurement</h2>
+          <p class="section-desc">
+            Rohit or senior carpenter will visit your residence anywhere in Delhi NCR. We measure room inches, verify doorway clearances, show seasoned wood blocks, and provide an instant transparent quote. 100% complimentary.
+          </p>
+        </div>
+
+        <form id="carpenter-booking-form">
+          <div class="booking-form-grid">
+            <div>
+              <label for="book-name" class="form-label">Full Name *</label>
+              <input type="text" id="book-name" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            </div>
+
+            <div>
+              <label for="book-phone" class="form-label">Phone Number *</label>
+              <input type="tel" id="book-phone" class="form-input" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-full">
+              <label for="book-address" class="form-label">Address / Locality & City *</label>
+              <input type="text" id="book-address" class="form-input" placeholder="e.g. Flat 402, Tower B, Sector 57, Gurugram" required>
+            </div>
+
+            <div>
+              <label for="book-furniture-type" class="form-label">Furniture Requirement</label>
+              <select id="book-furniture-type" class="form-select">
+                <option value="Living Room Sofa / Living Set">Living Room Sofa & Center Table</option>
+                <option value="King Size Bed & Wardrobe">Hydraulic Storage Bed & Wardrobe</option>
+                <option value="Solid Dining Table">Solid Teak Dining Table Set (6/8 Seater)</option>
+                <option value="Carved Pooja Mandir">Handcrafted Pooja Mandir</option>
+                <option value="Main Entrance Carved Door">Main Entrance Carved Door & Frame (Chaukhat)</option>
+                <option value="Full House Woodwork & Interiors">Complete Flat Woodwork & Interiors</option>
+                <option value="Old Furniture Repair / Polishing">Antique Furniture Restoration & PU Polish</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="book-date" class="form-label">Preferred Date & Time</label>
+              <input type="text" id="book-date" class="form-input" placeholder="e.g. Tomorrow 4 PM or Sunday morning">
+            </div>
+
+            <div class="form-full">
+              <label for="book-notes" class="form-label">Special Requirements or Dimensions</label>
+              <textarea id="book-notes" class="form-textarea" rows="2" placeholder="e.g. Looking for a 3+1+1 teak sofa set with washable fabric or hydraulic storage bed..."></textarea>
+            </div>
+
+            <div class="form-full">
+              <button type="submit" class="btn-book-submit">
+                Book Free Consultation & Inching →
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews (Three Sixty Voice of Satisfaction) -->
+  <section class="reviews-section" id="reviews-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">VOICE OF SATISFACTION</span>
+        <h2 class="section-title">Client Stories & Residences</h2>
+        <p class="section-desc">Feedback from homeowners across Delhi NCR who commissioned bespoke pieces from Sharma Enterprises.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-card-stars">★★★★★</div>
+            <p class="review-quote-text">
+              "We were skeptical about ordering custom wood furniture online, but Sharma Ji invited us to his Kirti Nagar workshop. Seeing the seasoned teak planks being hand-planed gave us complete confidence. Showrooms quoted ₹75,000 for veneer ply; Sharma Ji made it in 100% solid teak for ₹48,000. It's the highlight of our dining room."
+            </p>
+          </div>
+          <div>
+            <div class="review-author-name">Pooja & Ankit Mehra</div>
+            <span class="review-author-location">Sector 57, Sushant Lok, Gurugram</span>
+            <span class="review-badge-tag">Custom 6-Seater Teak Dining Table</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-card-stars">★★★★★</div>
+            <p class="review-quote-text">
+              "Real seasoned timber that is heavy and solid. Rohit came personally with measuring tape and fabric catalogs, measured our living room, and delivered on the 10th day. His karigars assembled everything properly. Highly recommended for people who value real wood over mall MDF."
+            </p>
+          </div>
+          <div>
+            <div class="review-author-name">Col. R.S. Rawat (Retd.)</div>
+            <span class="review-author-location">Sector 12, Dwarka, New Delhi</span>
+            <span class="review-badge-tag">Teak 3+1+1 Sofa Set with Brass Legs</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-card-stars">★★★★★</div>
+            <p class="review-quote-text">
+              "The hydraulic lift mechanism is butter smooth (Ebco brand) and the heartwood sheesham grains look majestic. Sharma Ji even sent WhatsApp video updates of the raw frame before polishing. 100% genuine carpenter work and honest pricing."
+            </p>
+          </div>
+          <div>
+            <div class="review-author-name">Dr. Shalini & Vivek Verma</div>
+            <span class="review-author-location">Shipra Suncity, Indirapuram, Ghaziabad</span>
+            <span class="review-badge-tag">Hydraulic Sheesham King Bed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subhead">COMMON INQUIRIES</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>Can I visit your karkhana to inspect the timber before paying an advance?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes, absolutely! We actively encourage every customer to visit our workshop in Kirti Nagar Lakkar Mandi. You can inspect our raw seasoned timber logs, feel the density of CP Teak and Sheesham, examine the mortise-and-tenon joinery, and finalize your design over a cup of tea.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do your payment stages work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            We follow a transparent 40-40-20 stage payment process: 40% advance to procure and cut your selected seasoned wood planks, 40% after you inspect the unpolished raw frame (either in person or over live WhatsApp video call), and the final 20% balance only after doorstep delivery, assembly, and your 100% satisfaction.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you use any MDF, particle board, or paper foil?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Strictly NO. We are traditional solid timber craftsmen. All structural load-bearing frames are built with 100% solid seasoned CP Teak (Sagwan) or pure Indian Sheesham. For wardrobe internal partitions or drawer bases, we only use branded ISI-marked BWP Marine Plywood. We never touch particle board or paper-foil MDF.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What if my apartment elevator or staircase is narrow?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Rohit checks all doorway, elevator, and staircase turns during the initial home measurement visit. For large furniture like 8-seater dining tables, king-size headboards, or tall wardrobes, we engineer precision knockdown joinery that passes easily through narrow stairwells and is assembled inside your room.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is covered under the 10-year warranty?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            We issue a physically stamped warranty certificate on our workshop letterhead. It covers structural joint integrity, warping, and termite/borer infestation. Because all our timber is kiln-dried below 12% moisture and chemically treated, we stand firmly behind our work.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Sixty Style Luxury Editorial Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-top-wrap">
+        <div>
+          <h4 style="font-size: 1.25rem; letter-spacing: 0.08em;">SHARMA ENTERPRISES</h4>
+          <p style="font-size: 0.84rem; line-height: 1.65; color: #D6C8B5; margin: 12px 0 16px;">
+            Sharma Enterprises is a bespoke solid woodcraft studio and traditional timber karkhana based in Kirti Nagar, New Delhi. Dedicated to handcrafting heirloom solid CP Teak and Sheesham furniture for modern Indian residences. Made in India. With passion.
+          </p>
+          <div style="font-size: 0.76rem; color: var(--gold-light); font-weight: 700;">
+            🛡️ 10-Year Written Letterhead Warranty • MSME Registered
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>COLLECTIONS</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog-section">Living Room Sofas</a></li>
+            <li><a href="#catalog-section">Solid Teak Dining Sets</a></li>
+            <li><a href="#catalog-section">Hydraulic Storage Beds</a></li>
+            <li><a href="#catalog-section">Hand-Carved Mandirs</a></li>
+            <li><a href="#catalog-section">Royal Teak Swings</a></li>
+            <li><a href="#catalog-section">Main Entrance Doors</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul class="footer-links">
+            <li><a href="#booking-section">Free In-Home Inching</a></li>
+            <li><a href="#bespoke-section">Bespoke Atelier Projects</a></li>
+            <li><a href="#pricing-section">Fair Workshop Rates</a></li>
+            <li><a href="#process-section">Our 4-Step Craft Process</a></li>
+            <li><a href="tel:+919876543210">Speak to Sharma Ji</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>KARKHANA & INQUIRIES</h4>
+          <p style="font-size: 0.82rem; color: #D6C8B5; line-height: 1.5; margin-bottom: 10px;">
+            Plot No. 42, Gali No. 3, Lakkar Mandi (Timber Market), Kirti Nagar Industrial Area, New Delhi - 110015
+          </p>
+          <p style="font-size: 0.82rem; color: white; font-weight: 700; margin-bottom: 6px;">
+            📞 +91 98765 43210 (Sharma Ji) <br>
+            📞 +91 98123 45678 (Rohit)
+          </p>
+          <div class="footer-newsletter-wrap">
+            <input type="email" placeholder="Sign up for workshop updates" class="footer-newsletter-input">
+            <button class="footer-newsletter-btn" onclick="showToast('Thank you for subscribing!')">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>© 1998 - 2026 Sharma Enterprises. All rights reserved. Handcrafted in New Delhi, India.</div>
+        <div style="display: flex; gap: 14px;">
+          <span>UPI / GPay / PhonePe</span>
+          <span>•</span>
+          <span>NEFT / IMPS</span>
+          <span>•</span>
+          <span>Cash on Delivery Balance</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quick-view-modal">
+    <div class="quick-view-modal">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div id="quick-view-body">
+        <!-- Rendered by main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

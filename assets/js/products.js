@@ -1,0 +1,270 @@
+// Sharma Enterprises - Complete Furniture Catalog Data
+const FURNITURE_PRODUCTS = [
+  {
+    id: "kc-sofa-01",
+    name: "Royal Heritage Teak Wood 3-Seater Sofa",
+    hindiName: "शाही सागवान 3-सीटर सोफा सेट",
+    category: "living",
+    woodType: "Solid CP Teak (सागवान)",
+    price: 38500,
+    mrp: 58000,
+    discount: "34% OFF",
+    rating: 4.9,
+    reviewsCount: 142,
+    badge: "100% Solid CP Teak",
+    image: "assets/images/sofa.jpg",
+    dimensions: '82" W x 34" D x 32" H',
+    finish: "Natural Teak Satin PU Polish",
+    leadTime: "7 - 10 Days",
+    shortDesc: "Handcrafted from seasoned CP Teak with precision joinery, brass leg caps, and high-density 40D ergonomic foam cushions.",
+    features: [
+      "100% Solid Seasoned Teak Wood frame (no ply used in base structure)",
+      "Brass cap accents on tapered legs",
+      "Stain-resistant premium breathable linen upholstery",
+      "Termite & borer proof kiln dried timber",
+      "10-Year structural guarantee"
+    ]
+  },
+  {
+    id: "kc-bed-01",
+    name: "Maharaja Solid Sheesham Fluted King Bed",
+    hindiName: "महाराजा शीशम फ्लूटेड किंग साइज बेड",
+    category: "bedroom",
+    woodType: "Pure Sheesham (भारतीय शीशम)",
+    price: 44000,
+    mrp: 69000,
+    discount: "36% OFF",
+    rating: 5.0,
+    reviewsCount: 189,
+    badge: "Pure Sheesham Heartwood",
+    image: "assets/images/bed.jpg",
+    dimensions: '76" W x 84" L x 48" H (Mattress 72x78")',
+    finish: "Walnut Honey Oil Polish",
+    leadTime: "10 - 12 Days",
+    shortDesc: "Statement bedroom centerpiece with artisan hand-fluted headboard and optional hydraulic hydraulic under-bed storage.",
+    features: [
+      "Pure heartwood Indian Sheesham with rich natural grain swirls",
+      "Solid wooden slats load tested up to 600 kg",
+      "Hand-rubbed organic oil & wax polish",
+      "Smooth rounded edges, child & elder safe",
+      "Easy knock-down assembly by our expert carpenters"
+    ]
+  },
+  {
+    id: "kc-dining-01",
+    name: "Artisanal 6-Seater Solid Teak Dining Set",
+    hindiName: "हस्तनिर्मित 6-सीटर सागवान डाइनिंग सेट",
+    category: "dining",
+    woodType: "Grade-A Nilambur Teak (सागवान)",
+    price: 49500,
+    mrp: 75000,
+    discount: "34% OFF",
+    rating: 4.9,
+    reviewsCount: 96,
+    badge: "Heavy Teak Planks",
+    image: "assets/images/dining_table.jpg",
+    dimensions: 'Table: 72" L x 36" W x 30" H | 6 Chairs',
+    finish: "Heat & Spill Resistant Matte PU",
+    leadTime: "8 - 12 Days",
+    shortDesc: "Generous 6-seater dining table with mortise-and-tenon joinery and 6 ergonomically curved solid wood dining chairs.",
+    features: [
+      "Waterproof and hot-vessel resistant top coating",
+      "Heavy 3-inch thick solid teak legs for zero wobble",
+      "Chairs contoured for lumbar back support",
+      "Customizable to 4, 8, or 10 seaters on request"
+    ]
+  },
+  {
+    id: "kc-wardrobe-01",
+    name: "Bespoke Fluted Oak & Teak 6-Door Wardrobe",
+    hindiName: "कस्टम फ्लूटेड वार्डरोब (अलमारी)",
+    category: "bedroom",
+    woodType: "Natural White Oak & Teak Wood",
+    price: 68000,
+    mrp: 98000,
+    discount: "30% OFF",
+    rating: 4.8,
+    reviewsCount: 78,
+    badge: "Custom Inching & Marine Ply Interior",
+    image: "assets/images/wardrobe.jpg",
+    dimensions: '96" W x 24" D x 84" H (8x7 Feet)',
+    finish: "Natural Brushed Matte Finish",
+    leadTime: "12 - 15 Days",
+    shortDesc: "Floor-to-ceiling artisanal wardrobe with vertical fluted texture, solid brass pull handles, soft-close hinges, and modular locker internals.",
+    features: [
+      "Soft-close German concealed hinges and soft-glide drawers",
+      "Built-in lockable jewelry drawer and hanging rods",
+      "Insect-repellent natural cedar/neem internal wooden lining",
+      "Customizable shelf height and internal configuration"
+    ]
+  },
+  {
+    id: "kc-mandir-01",
+    name: "Hand-Carved Grand Teak Wood Pooja Mandir",
+    hindiName: "नक्काशीदार सागवान गृह मंदिर (पूजा घर)",
+    category: "mandir",
+    woodType: "100% Solid Sagwan / Teak Wood",
+    price: 32000,
+    mrp: 48000,
+    discount: "33% OFF",
+    rating: 5.0,
+    reviewsCount: 230,
+    badge: "Hand-Chiseled Temple",
+    image: "assets/images/mandir.jpg",
+    dimensions: '36" W x 22" D x 52" H',
+    finish: "Rich Golden Teak Traditional Polish",
+    leadTime: "6 - 9 Days",
+    shortDesc: "Auspicious home temple hand-chiseled with traditional Gopuram dome, solid brass hanging bells, pull-out bhog tray, and deep storage drawers.",
+    features: [
+      "Hand-chiseled floral and peacock motifs by master temple woodworkers",
+      "Pull-out diya and bhog offering sliding shelf with brass knob",
+      "Solid brass chime bells included",
+      "Concealed wiring groove for LED temple lighting",
+      "Smoke and agarbatti soot resistant lacquer finish"
+    ]
+  },
+  {
+    id: "kc-jhula-01",
+    name: "Heritage Carved Teak Jhula with Brass Chains",
+    hindiName: "राजशाही नक्काशीदार सागवान झूला",
+    category: "balcony",
+    woodType: "CP Teak Wood (सागवान)",
+    price: 42000,
+    mrp: 62000,
+    discount: "32% OFF",
+    rating: 4.9,
+    reviewsCount: 115,
+    badge: "Solid Brass Link Chains",
+    image: "assets/images/jhula.jpg",
+    dimensions: '60" W x 26" D x 24" H (Plank)',
+    finish: "Antiqued Walnut Satin Polish",
+    leadTime: "8 - 12 Days",
+    shortDesc: "Traditional royal indoor/balcony swing with elephant motif backrest, elephant head side pillars, and heavy solid brass link chains.",
+    features: [
+      "Tested load capacity of 350 kg (comfortably seats 3 adults)",
+      "Pure solid brass peacock/elephant link suspension chains included",
+      "Custom plush seat mattress and bolster cushions included",
+      "High tensile ceiling hooks and anchoring hardware provided"
+    ]
+  },
+  {
+    id: "kc-door-01",
+    name: "Grand Carved Solid Teak Main Entrance Door",
+    hindiName: "विशाल नक्काशीदार मुख्य प्रवेश द्वार",
+    category: "doors",
+    woodType: "Heavy Mature CP Teak (सागवान)",
+    price: 52000,
+    mrp: 78000,
+    discount: "33% OFF",
+    rating: 5.0,
+    reviewsCount: 64,
+    badge: "55mm Solid Teak Section",
+    image: "assets/images/door.jpg",
+    dimensions: '42" W x 84" H x 2.25" Thickness (Frame custom)',
+    finish: "Exterior Weatherproof UV-Protected PU",
+    leadTime: "10 - 14 Days",
+    shortDesc: "Vastu-compliant grand front door featuring 3D geometric grid carvings, solid brass lion head or elongated bar pull handles.",
+    features: [
+      "Extra-thick 55mm solid timber section for superior security and acoustic insulation",
+      "Weather-shield exterior treatment prevents warping in monsoons & heat",
+      "Includes matching solid teak frame (Chaukhat / चौखट)",
+      "Compatible with digital smart door locks & traditional mortise locks"
+    ]
+  },
+  {
+    id: "kc-desk-01",
+    name: "Executive Sheesham Study Desk & Chair Set",
+    hindiName: "एग्जीक्यूटिव शीशम स्टडी टेबल व कुर्सी",
+    category: "study",
+    woodType: "Solid Indian Sheesham (शीशम)",
+    price: 26500,
+    mrp: 39000,
+    discount: "32% OFF",
+    rating: 4.8,
+    reviewsCount: 104,
+    badge: "English Dovetail Joinery",
+    image: "assets/images/desk.jpg",
+    dimensions: '54" W x 26" D x 30" H',
+    finish: "Smooth Silk Touch Walnut Finish",
+    leadTime: "5 - 8 Days",
+    shortDesc: "Clean craftsman home-office desk with 5 smooth dovetail drawers, brass knobs, integrated wire routing grommet, and matching wooden chair.",
+    features: [
+      "Traditional English dovetail joinery for lifetime drawer durability",
+      "Built-in subtle cable management pass-through",
+      "Felt-lined top stationery drawer with smooth wooden runners",
+      "Spacious legroom suited for full day ergonomic work from home"
+    ]
+  },
+  {
+    id: "kc-coffee-01",
+    name: "Live-Edge Natural Grain Walnut Coffee Table",
+    hindiName: "लाइव-एज सॉलिड वॉलनट सेंटर टेबल",
+    category: "living",
+    woodType: "Solid Walnut / Teak Slab",
+    price: 18500,
+    mrp: 29000,
+    discount: "36% OFF",
+    rating: 4.9,
+    reviewsCount: 88,
+    badge: "Single Tree Slab Top",
+    image: "assets/images/hero.jpg",
+    dimensions: '48" L x 24" W x 18" H (Natural edge varies)',
+    finish: "Satin Organic Hardwax Oil",
+    leadTime: "4 - 7 Days",
+    shortDesc: "Unique one-of-a-kind single tree slab table showing natural bark contour and rich dark heartwood grains, paired with powder-coated matte legs.",
+    features: [
+      "Every single table is 100% unique with natural raw live-edge contour",
+      "Butterfly key wooden inlays to stabilize natural knots",
+      "Heavy gauge matte black metal or solid wood sled legs",
+      "Stain-resistant sealant prevents coffee ring stains"
+    ]
+  }
+];
+
+// Wood Types Knowledge for Estimator & Guide
+const WOOD_TYPES = [
+  {
+    id: "sagwan",
+    name: "CP Teak Wood (सागवान)",
+    density: "Heavy Hardwood",
+    durability: "50+ Years",
+    termiteResistance: "Natural Oils (100% Termite Proof)",
+    bestFor: "Doors, Living Sofas, Grand Mandirs, Luxury Dining",
+    baseRatePerSqFt: 1850,
+    colorClass: "#966133",
+    description: "The gold standard of Indian carpentry. Rich golden brown tone, high natural silica and oil content that permanently resists moisture, rot, and termites."
+  },
+  {
+    id: "sheesham",
+    name: "Indian Rosewood (शीशम)",
+    density: "Dense Hardwood",
+    durability: "40+ Years",
+    termiteResistance: "Very High",
+    bestFor: "Beds, Study Tables, Dining Chairs, Bookshelves",
+    baseRatePerSqFt: 1450,
+    colorClass: "#5c341b",
+    description: "Famed for its dramatic dark and golden grain patterns. Highly rigid, hard-wearing, and takes a brilliant mirror or satin polish."
+  },
+  {
+    id: "oak",
+    name: "White Oak (ओक की लकड़ी)",
+    density: "Tough Fine Grain",
+    durability: "35+ Years",
+    termiteResistance: "High",
+    bestFor: "Modern Wardrobes, Minimalist Scandinavian Furniture",
+    baseRatePerSqFt: 1650,
+    colorClass: "#b5906b",
+    description: "Modern, light, clean texture with straight fluted grains. Perfect for contemporary architectural homes and Nordic aesthetics."
+  },
+  {
+    id: "marineply",
+    name: "Calibrated Marine Ply + 4mm Teak Veneer",
+    density: "Engineered Core + Solid Face",
+    durability: "25+ Years",
+    termiteResistance: "Chemically Treated (Borer Proof)",
+    bestFor: "Internal Wardrobe Shelves, Modular Kitchen, TV Units",
+    baseRatePerSqFt: 950,
+    colorClass: "#caa27a",
+    description: "High-grade 710 Boiling Water Proof (BWP) plywood faced with genuine natural wooden veneer for cost-effective internal cabinetry without warping."
+  }
+];
